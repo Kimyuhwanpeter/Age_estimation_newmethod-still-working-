@@ -12,7 +12,7 @@
 
     | step 1                                                       |
     | ------------------------------------------------------------ |
-    | img = tf.io.read_file(im)<br/>    img = tf.image.decode_jpeg(img)<br/>    img = tf.image.resize(img, [FLAGS.img_size, FLAGS.img_size])<br/>    img = tf.image.rgb_to_grayscale(img)<br/>    img = tf.image.per_image_standardization(img) |
+    | img = tf.io.read_file(im)<br/>    img = tf.image.decode_jpeg(img)<br/>    img = tf.image.resize(img, [FLAGS.img_size, FLAGS.img_size])<br/>    img = tf.image.rgb_to_grayscale(img)    img = tf.image.per_image_standardization(img) |
 
 
 ## Problem
