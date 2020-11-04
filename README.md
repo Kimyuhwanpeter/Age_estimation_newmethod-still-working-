@@ -46,32 +46,7 @@
 
  5.  Calculate the distances between model output and final_pca. And apply to increase and decrease loss
 
-        with tf.GradientTape() as tape:
-            logits = run_model(model, images, True) # batch x 100
-            in_loss = 0.
-            de_loss = 0.
-            loss = 0.
-            for i in range(FLAGS.batch_size):
-                logits_ = logits[i]
-                labels_ = labels[i]
-        
-                distance = tf.reduce_mean(tf.abs(logits_ - input_pca), 1)
-                #less_distance = tf.reduce_min(distance)
-                distance_arg = tf.argmin(distance)
-                label_arg = (tf.argmin(labels_)).numpy()
-        
-                decrease_loss = 0.
-                for j in range(FLAGS.classes):
-                    if distance[label_arg] != distance[j]:
-                        decrease_loss += (-distance[j]-1)/(1 - tf.math.exp(0.2*distance[j]) + 0.000001)
-                    else:
-                        increas_loss = tf.math.exp(distance[label_arg] - 1.5)
-        
-                loss += (decrease_loss + increas_loss) / FLAGS.classes  
-        
-            loss /= FLAGS.batch_size
-        grads = tape.gradient(loss, model.trainable_variables)
-        optim.apply_gradients(zip(grads, model.trainable_variables))
+
 
 ## Problem
 
