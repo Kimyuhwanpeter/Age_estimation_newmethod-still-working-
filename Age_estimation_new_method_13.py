@@ -123,7 +123,7 @@ def cal_loss(model, input_pca, images, labels):
             distance = tf.reduce_mean(tf.abs(logits_ - input_pca), 1)
             #less_distance = tf.reduce_min(distance) # 최소 거리값은 구했다!
             distance_arg = tf.argmin(distance)
-            label_arg = (tf.argmin(labels_)).numpy()
+            label_arg = (tf.argmax(labels_)).numpy()    # fix!!!!
 
             decrease_loss = 0.
             for j in range(FLAGS.classes):
