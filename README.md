@@ -77,4 +77,6 @@
 
 * Loss function is not stable (or unchangeable)
 * **Need to find out the new loss**
+* In experiment, Loss was not changed
+* Loss was consist of sigmoid somthing..
 
